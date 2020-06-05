@@ -3,6 +3,7 @@ import knex from './database/connection';
 import { request } from 'http';
 
 const routes = express.Router();
+routes.use(express.json());
 
 routes.get('/items', async (request, response) => {
     const items = await knex('items').select('*');
@@ -10,7 +11,7 @@ routes.get('/items', async (request, response) => {
         return {
             id: item.id,
             title: item.titulo,
-            image_url: 'http://localhost:3333/uploads/' + item.image
+            image_url: `http://localhost:3333/uploads/${item.image}`
         }
     });
 
@@ -29,7 +30,7 @@ routes.post('/points', async (request, response) => {
         items
     } = request.body;
 
-    await knex('/points').insert({
+    await knex('points').insert({
         image: 'image-fake',
         name,
         email,
