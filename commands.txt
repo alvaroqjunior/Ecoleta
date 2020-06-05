@@ -1,0 +1,20 @@
+npm init -y
+
+npm install express
+npm install @types/express -d
+npm install typescript -d
+npx ts-node src/server.ts
+
+npx tsc --init
+npm install ts-node-dev -d
+
+npx create-react-app web --templatetypescript
+
+
+npm install knex
+npm install sqlite3
+
+npx knex migrate:latest --knexfile knexfile.ts migrate:latest
+
+extensions
+material icon theme
